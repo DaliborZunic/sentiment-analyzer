@@ -35,6 +35,7 @@ python -m venv .venv
 
 **macOS/Linux:**
 ```bash
+cd sentiment-analyzer/backend
 python3 -m venv .venv
 source .venv/bin/activate
 ```
