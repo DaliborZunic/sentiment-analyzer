@@ -1,0 +1,22 @@
+.header-wrapper {
+    padding: .5rem 1.5rem;
+    background-color: #020d42;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation {
+    display: flex;
+    gap: 2rem
+}
+
+.header-wrapper a {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+}
+
+.logo {
+    width: 150px;
+}

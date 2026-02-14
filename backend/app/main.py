@@ -1,5 +1,6 @@
 import uvicorn
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from app.models import SentimentRequest, SentimentResponse
 from app.analyzer import SentimentAnalyzer
 
@@ -8,6 +9,15 @@ app = FastAPI(
     title="Sentiment Analyzer API",
     description="REST API for analyzing sentiment of English text",
     version="1.0.0"
+)
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Initialize sentiment analyzer with error handling

@@ -1,0 +1,86 @@
+.analyzer-wrapper {
+    padding: 2rem;
+}
+
+.intro-text {
+    display: block;
+    padding-bottom: 1rem;
+}
+
+.request-wrapper {
+    display: flex;
+    gap: .5rem
+}
+
+.go-button {
+    width: 6rem;
+    background-color: #02f4ff;
+    color: #009b9b;
+    border-radius: 1rem;
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+}
+
+.go-button.loading {
+    cursor: not-allowed;
+}
+
+.go-button:not(.loading) {
+    cursor: pointer;
+}
+
+.text-input {
+    width: 100%;
+    height: 7rem;
+    border-radius: 1rem;
+    font-family: "Outfit", sans-serif;
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+.error-message {
+    color: #ef4444;
+    margin-top: 1rem;
+}
+
+.result-wrapper {
+    margin-top: 2rem;
+}
+
+.analyzed-text {
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    font-style: italic;
+    color: #555;
+}
+
+.sentiment-label {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.sentiment-value {
+    font-weight: bold;
+}
+
+.sentiment-value.positive {
+    color: #22c55e;
+}
+
+.sentiment-value.negative {
+    color: #ef4444;
+}
+
+.sentiment-value.neutral {
+    color: #94a3b8;
+}
+
+.confidence-score {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: #666;
+}
