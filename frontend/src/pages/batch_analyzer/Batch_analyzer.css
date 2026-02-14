@@ -12,8 +12,12 @@
     gap: .5rem
 }
 
-.go-button {
-    width: 8rem;
+.batch-analyzer-wrapper .text-input {
+    width: 100%;
+}
+
+.batch-analyzer-wrapper .go-button {
+    width: 16rem;
     background-color: #02f4ff;
     color: #009b9b;
     border-radius: 1rem;
