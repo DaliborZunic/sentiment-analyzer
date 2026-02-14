@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI, HTTPException
-from models import SentimentRequest, SentimentResponse
-from analyzer import SentimentAnalyzer
+from app.models import SentimentRequest, SentimentResponse
+from app.analyzer import SentimentAnalyzer
 
 # Create FastAPI application
 app = FastAPI(
@@ -47,6 +47,3 @@ def analyze_sentiment(request: SentimentRequest):
         sentiment=result["sentiment"],
         confidence=result["confidence"]
     )
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
