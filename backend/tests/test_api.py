@@ -50,3 +50,66 @@ def test_empty_text():
         json={"text": ""}
     )
     assert response.status_code == 400
+
+
+def test_batch_analyze_multiple_texts():
+    """Test batch analysis with multiple texts"""
+    response = client.post(
+        "/analyze/batch",
+        json={
+            "texts": [
+                "This is amazing! I love it!",
+                "Terrible product, very disappointed.",
+                "The product arrived on time."
+            ]
+        }
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert "results" in data
+    assert len(data["results"]) == 3
+    assert data["results"][0]["sentiment"] == "positive"
+    assert data["results"][1]["sentiment"] == "negative"
+    assert data["results"][2]["sentiment"] == "neutral"
+
+
+def test_batch_analyze_single_text():
+    """Test batch analysis with single text"""
+    response = client.post(
+        "/analyze/batch",
+        json={"texts": ["Great experience!"]}
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert len(data["results"]) == 1
+    assert data["results"][0]["sentiment"] == "positive"
+
+
+def test_batch_analyze_empty_list():
+    """Test batch analysis with empty list"""
+    response = client.post(
+        "/analyze/batch",
+        json={"texts": []}
+    )
+    assert response.status_code == 400
+
+
+def test_batch_analyze_with_empty_strings():
+    """Test batch analysis with some empty strings"""
+    response = client.post(
+        "/analyze/batch",
+        json={
+            "texts": [
+                "Great product!",
+                "",
+                "Awful experience."
+            ]
+        }
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert len(data["results"]) == 3
+    assert data["results"][0]["sentiment"] == "positive"
+    assert data["results"][1]["sentiment"] == "neutral"
+    assert data["results"][1]["confidence"] == 0.0
+    assert data["results"][2]["sentiment"] == "negative"
