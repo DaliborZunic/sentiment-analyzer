@@ -21,7 +21,7 @@ A REST API + React frontend for analyzing sentiment of English text using VADER 
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/DaliborZunic/sentiment-analyzer.git
 cd sentiment-analyzer/backend
 ```
 
