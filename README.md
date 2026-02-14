@@ -1,6 +1,6 @@
-# Sentiment Analyzer API
+# Sentiment Analyzer
 
-A REST API for analyzing sentiment of English text using VADER (Valence Aware Dictionary and sEntiment Reasoner).
+A REST API + React frontend for analyzing sentiment of English text using VADER (Valence Aware Dictionary and sEntiment Reasoner).
 
 ## Features
 
@@ -14,6 +14,7 @@ A REST API for analyzing sentiment of English text using VADER (Valence Aware Di
 
 - Python 3.8 or higher
 - pip (Python package installer)
+- Node.js and npm (for frontend)
 
 ## Installation
 
@@ -24,7 +25,7 @@ git clone <repository-url>
 cd sentiment-analyzer/backend
 ```
 
-### 2. Create a virtual environment
+### 2. Create a virtual environment for API
 
 **Windows:**
 ```bash
@@ -40,7 +41,7 @@ source .venv/bin/activate
 
 You should see `(.venv)` appear in your terminal prompt, indicating the virtual environment is active.
 
-### 3. Install dependencies
+### 3. Install dependencies for API
 
 ```bash
 pip install -r requirements.txt
@@ -110,20 +111,41 @@ From the `backend` directory with your virtual environment activated:
 pytest -v
 ```
 
-## Project Structure
+## Running the Frontend
 
-```
-backend/
-├── app/
-│   ├── __init__.py
-│   ├── main.py           # FastAPI application and endpoints
-│   ├── models.py         # Pydantic models for request/response
-│   └── analyzer.py       # Sentiment analysis logic
-├── tests/
-│   ├── __init__.py
-│   └── test_api.py       # API tests
-├── requirements.txt      # Python dependencies
-├── .venv/               # Virtual environment (created by you)
-└── README.md            # This file
+The project includes a React TypeScript frontend built with Vite.
+
+### 1. Navigate to the frontend directory
+
+From the project root:
+
+```bash
+cd frontend
 ```
 
+### 2. Install dependencies for frontend
+
+```bash
+npm install
+```
+
+### 3. Start the development server for frontend
+
+```bash
+npm run dev
+```
+
+The frontend will run on http://localhost:5173
+
+### 4. Using the application
+
+1. Make sure the backend server is running (see "Running the Server" section above)
+2. Open http://localhost:5173 in your browser
+3. Enter text in the textarea
+4. Click "Go!" to analyze the sentiment
+5. View the results below showing sentiment and confidence score
+6. Try the batch analyzer also!
+
+### Stop the frontend server
+
+Press `Ctrl+C` in the terminal where the frontend is running.
