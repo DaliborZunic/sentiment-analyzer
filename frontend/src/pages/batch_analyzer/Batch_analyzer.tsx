@@ -59,7 +59,7 @@ const BatchAnalyzer = () => {
   return (
     <div className="batch-analyzer-wrapper">
       <span className="intro-text">
-        Enter multiple texts (one per line) and click "Analyze All!" to evaluate their sentiments
+        Enter multiple texts (one paragraph per review) and click "Analyze All!" to evaluate their sentiments
       </span>
       <div className="request-wrapper">
         <textarea 
