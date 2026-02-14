@@ -1,4 +1,5 @@
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from typing import List
 
 
 class SentimentAnalyzer:
@@ -35,3 +36,33 @@ class SentimentAnalyzer:
             "sentiment": sentiment,
             "confidence": round(confidence, 2)
         }
+    
+    def analyze_batch(self, texts: List[str]) -> List[dict]:
+        """
+        Analyze sentiment for multiple texts.
+        
+        Returns list of dictionaries with sentiment and confidence for each text.
+        """
+        results = []
+        
+        for text in texts:
+            # Handle empty text
+            if not text or text.strip() == "":
+                results.append({
+                    "text": text,
+                    "sentiment": "neutral",
+                    "confidence": 0.0
+                })
+                continue
+            
+            # Analyze sentiment
+            result = self.analyze(text)
+            results.append({
+                "text": text,
+                "sentiment": result["sentiment"],
+                "confidence": result["confidence"]
+            })
+        
+        return results
+    
+    
