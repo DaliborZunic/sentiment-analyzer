@@ -22,13 +22,13 @@ A REST API + React frontend for analyzing sentiment of English text using VADER 
 
 ```bash
 git clone https://github.com/DaliborZunic/sentiment-analyzer.git
-cd sentiment-analyzer/backend
 ```
 
 ### 2. Create a virtual environment for API
 
 **Windows:**
 ```bash
+cd sentiment-analyzer/backend
 python -m venv .venv
 .venv\Scripts\activate
 ```
